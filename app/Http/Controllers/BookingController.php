@@ -171,6 +171,7 @@ class BookingController extends Controller {
 
                     $booking->consulted_at = $current_date_time;
 
+                    $booking->save();
                 } elseif($status == 'completed') {
 
                     $booking->pending = 0;
@@ -180,6 +181,7 @@ class BookingController extends Controller {
 
                     $booking->completed_at = $current_date_time;
 
+                    $booking->save();
                 } elseif($status == 'cancelled') {
 
                     $booking->pending = 0;
@@ -189,16 +191,21 @@ class BookingController extends Controller {
 
                     $booking->cancelled_at = $current_date_time;
 
+                    $booking->save();
                 } else {
                     $error_msg[] = 'No status selected';
                 }
+
+                return Redirect::back();
             }
         }
 
-        return view('booking.update_status', [
-            'booking' => $booking,
-            'success' => $success,
-            'status' => $status
-        ]);
+        if(Request::method() == 'GET') {
+            return view('booking.update_status', [
+                'booking' => $booking,
+                'success' => $success,
+                'status' => $status
+            ]);
+        }
     }
 }

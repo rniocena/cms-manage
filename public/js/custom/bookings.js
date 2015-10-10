@@ -39,6 +39,8 @@ $(document).on('click', '.updateStatus', function(e) {
                 .html(html)
             ;
 
+            $('.btn-confirm-status').data('href', $('.updateStatus').attr('href'));
+
             modal.modal('show');
 
             console.log('status selected successfully');
@@ -47,10 +49,4 @@ $(document).on('click', '.updateStatus', function(e) {
             console.log("Failed to select status");
         }
     });
-});
-
-$(document).on('click', '.btn-confirm-status', function(e) {
-    e.preventDefault();
-
-    alert('hi');
 });

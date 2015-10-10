@@ -16,3 +16,26 @@
         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
         <button class="btn btn-primary btn-confirm-status">Save changes</button>
     </div>
+
+    <script>
+        $(document).on('click', '.btn-confirm-status', function(e) {
+            e.preventDefault();
+
+            var href = $(this).data('href');
+
+            $.ajax({
+                url: href,
+                type: 'POST',
+                data: {
+                    _token: '{!! csrf_token() !!}'
+                },
+                success: function (data, index) {
+                    window.location.reload();
+                    console.log('Status Changed');
+                },
+                error: function (jqXHR) {
+                    console.log("Failed to change status");
+                }
+            });
+        });
+    </script>
