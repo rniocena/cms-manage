@@ -19,11 +19,24 @@ $(document).on('focus click', '#booking_date', function(e) {
         showInputs: false,
         disableFocus: true,
         defaultTime: "9:00 AM"
-    })
+    });
+});
+
+$(document).on('focus click', '#booking_time', function(e) {
+    e.preventDefault();
+
+    $('.timepicker3').timepicker({
+        minuteStep: 5,
+        showInputs: true,
+        disableFocus: true,
+        defaultTime: "9:00 AM"
+    });
 });
 
 $(document).on('click', '.updateStatus', function(e) {
     e.preventDefault();
+
+    var href = $(this).attr('href');
 
     $.ajax({
         url: $(this).attr('href'),
@@ -39,7 +52,7 @@ $(document).on('click', '.updateStatus', function(e) {
                 .html(html)
             ;
 
-            $('.btn-confirm-status').data('href', $('.updateStatus').attr('href'));
+            $('.btn-confirm-status').data('href', href);
 
             modal.modal('show');
 

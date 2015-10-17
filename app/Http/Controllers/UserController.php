@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Models\Bookings;
 use App\Models\User;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
@@ -148,6 +149,22 @@ class UserController extends Controller {
             }
 
         }
+    }
+
+    public function anyMyBookings()
+    {
+        $bookings = NULL;
+
+        if(User::check()) {
+            $bookings = Bookings::
+                where('user_id', User::get()->id)
+                ->orderBy('updated_at', 'DESC')
+                ->get();
+        }
+
+        return view('account.my_bookings', [
+            'bookings' => $bookings
+        ]);
     }
 
     /**

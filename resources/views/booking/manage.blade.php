@@ -36,19 +36,23 @@
                                     {{$booking->service_type->service}}
                                 </td>
                                 <td class="table-td-border">
-                                    {{$booking->booking_date}}
+                                    @if($booking->completed == 1)
+                                        {{date('D, d M, Y', strtotime($booking->booking_date))}}
+                                    @endif
                                 </td>
                                 <td class="table-td-border">
-                                    {{$booking->time}}
+                                    @if($booking->completed == 1)
+                                        {{date('g:i A', strtotime($booking->booking_time))}}
+                                    @endif
                                 </td>
                                 <td class="table-td-border">
                                     @if($booking->pending == 1)
                                         Pending
                                     @elseif($booking->consulted == 1)
                                         Consulted
-                                    @elseif($booking->completed == 1) {
+                                    @elseif($booking->completed == 1)
                                         Completed
-                                    @elseif($booking->cancelled == 1) {
+                                    @elseif($booking->cancelled == 1)
                                         Cancelled
                                     @else
                                         Invalid
@@ -59,9 +63,9 @@
                                         {{$booking->pending_convert}}
                                     @elseif($booking->consulted == 1)
                                         {{$booking->consulted_convert}}
-                                    @elseif($booking->completed == 1) {
+                                    @elseif($booking->completed == 1)
                                         {{$booking->completed_convert}}
-                                    @elseif($booking->cancelled == 1) {
+                                    @elseif($booking->cancelled == 1)
                                         {{$booking->cancelled_convert}}
                                     @else
                                         Invalid

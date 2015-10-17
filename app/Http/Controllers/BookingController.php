@@ -138,7 +138,8 @@ class BookingController extends Controller {
         }
 
         return view('booking.manage', [
-            'bookings' => $bookings
+            'bookings' => $bookings,
+            'success' => 'pending'
         ]);
     }
 
@@ -159,10 +160,19 @@ class BookingController extends Controller {
 
         $success = false;
 
-        if($booking) {
-            $success = true;
+        $booking_date = Input::get('booking_date');
+        $booking_time = Input::get('booking_time');
 
-            if(Request::method() == 'POST') {
+        if(Request::method() == 'GET') {
+            return view('booking.update_status', [
+                'booking' => $booking,
+                'success' => $success,
+                'status' => $status,
+                'error_msg' => $error_msg
+            ]);
+        } else {
+
+            if ($booking) {
                 if ($status == 'consulted') {
                     $booking->pending = 0;
                     $booking->consulted = 1;
@@ -172,17 +182,30 @@ class BookingController extends Controller {
                     $booking->consulted_at = $current_date_time;
 
                     $booking->save();
-                } elseif($status == 'completed') {
 
-                    $booking->pending = 0;
-                    $booking->consulted = 0;
-                    $booking->completed = 1;
-                    $booking->cancelled = 0;
+                    $success = true;
+                } elseif ($status == 'completed') {
 
-                    $booking->completed_at = $current_date_time;
+                    if ($booking_date && $booking_time) {
+                        $booking->pending = 0;
+                        $booking->consulted = 0;
+                        $booking->completed = 1;
+                        $booking->cancelled = 0;
 
-                    $booking->save();
-                } elseif($status == 'cancelled') {
+                        $booking->completed_at = $current_date_time;
+
+                        $booking->booking_date = date('Y-m-d', strtotime($booking_date));
+                        $booking->booking_time = date('H:i:s', strtotime($booking_time));
+
+                        $booking->save();
+
+                        $success = true;
+                    } else {
+                        $error_msg[] = 'Booking date and booking time are required.';
+
+                        $success = false;
+                    }
+                } elseif ($status == 'cancelled') {
 
                     $booking->pending = 0;
                     $booking->consulted = 0;
@@ -192,20 +215,30 @@ class BookingController extends Controller {
                     $booking->cancelled_at = $current_date_time;
 
                     $booking->save();
+
+                    $success = true;
                 } else {
                     $error_msg[] = 'No status selected';
+
+                    $success = false;
                 }
 
-                return Redirect::back();
+                if ($success) {
+                    return Redirect::back()->with('success', $success);
+                } else {
+                    return view('booking.update_status', [
+                        'booking' => $booking,
+                        'success' => $success,
+                        'status' => $status,
+                        'error_msg' => $error_msg
+                    ]);
+                }
+            } else {
+                return Redirect::back()->with([
+                    'success', $success,
+                    'error_msg', $error_msg
+                ]);
             }
-        }
-
-        if(Request::method() == 'GET') {
-            return view('booking.update_status', [
-                'booking' => $booking,
-                'success' => $success,
-                'status' => $status
-            ]);
         }
     }
 }

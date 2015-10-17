@@ -18,6 +18,8 @@ Route::controller('booking', 'BookingController');
 
 Route::controller('shop', 'ProductController');
 
+Route::controller('contact', 'ContactController');
+
 Route::controller('/home', 'HomeController');
 
 Route::controller('invoice', 'InvoiceController');

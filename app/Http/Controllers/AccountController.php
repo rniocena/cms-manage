@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Models\NavPrivacy;
 use App\Models\User;
 use Illuminate\Support\Facades\View;
 
