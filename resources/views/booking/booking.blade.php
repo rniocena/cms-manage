@@ -26,8 +26,7 @@
                 <div class="span12">
                     <div class="widget ">
                         <div class="widget-header">
-                            <i class="icon-user"></i>
-                            <h3>Request Form</h3>
+                            <h3>Book a service</h3>
                         </div>
                         <div class="widget-content">
                             <form action="{{action('BookingController@anyBooking')}}" method="POST" class="form-horizontal formBookings">
@@ -59,6 +58,16 @@
                                             <input type="email" class="span4" id="email" name="email" value="{{$user->email}}">
                                             @if($errors->first('email'))
                                                 <br><span class="text-danger">{{$errors->first('email')}}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <label class="control-label" for="email">Contact Number</label>
+                                        <div class="controls">
+                                            <input type="text" class="span4" id="phone" name="phone" value="{{$user->phone}}">
+                                            @if($errors->first('phone'))
+                                                <br><span class="text-danger">{{$errors->first('phone')}}</span>
                                             @endif
                                         </div>
                                     </div>
@@ -120,6 +129,12 @@
                                                 <br><span class="text-danger">{{$errors->first('booking_date')}}</span>
                                             @endif
                                         </div>
+                                        <br>
+                                        <p>
+                                            As soon as your booking is received, we will get in touch with you to inform
+                                            you if your selected date is available. Otherwise, we will arrange another date
+                                            that would suit your request.
+                                        </p>
                                     </div>
 
                                     <div class="form-actions">

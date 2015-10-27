@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
             </a>
             <div style="float: left;">
-                <img src="/images/gcos-logo.jpeg" title="SMARTCCTVALARM" style="width:100px; height:100px">
+                <img src="../../../storage/app/upload/cctvlogo.png" title="SMARTCCTVALARM" style="width:100px; height:100px">
             </div>
             <div style="float:left; margin-left: 25px; margin-top: 15px">
                 <a class="brand" href="">
@@ -52,21 +52,21 @@
                     <li class=""><a href="{{action('DashboardController@anyDashboard')}}"><i class="icon-dashboard"></i><span>Dashboard</span> </a> </li>
                 @endif
 
-                {{--<li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">--}}
-                    {{--<i class="icon-shopping-cart"></i><span>Shop</span> <b class="caret"></b></a>--}}
-                    {{--<ul class="dropdown-menu">--}}
+                <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-shopping-cart"></i><span>Shop</span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
 
-                        {{--@if($super_admin)--}}
-                            {{--<li><a href="{{action('ProductController@anyManageShop')}}">Manage Store</a></li>--}}
-                        {{--@endif--}}
+                        @if($super_admin)
+                            <li><a href="{{action('ProductController@anyManageShop')}}">Manage Store</a></li>
+                        @endif
 
-                        {{--<li><a href="{{action('ProductController@anyProduct', 'analog_cctv')}}">Analog CCTV</a></li>--}}
-                        {{--<li><a href="{{action('ProductController@anyProduct', 'digital_cctv')}}">Digital CCTV</a></li>--}}
-                        {{--<li><a href="{{action('ProductController@anyProduct', 'ip_camera')}}">IP Camera</a></li>--}}
-                        {{--<li><a href="{{action('ProductController@anyProduct', 'alarm')}}">Alarm</a></li>--}}
-                        {{--<li><a href="{{action('ProductController@anyProduct', 'combo')}}">Combo</a></li>--}}
-                    {{--</ul>--}}
-                {{--</li>--}}
+                        <li><a href="{{action('ProductController@anyProduct', 'analog_cctv')}}">Analog CCTV</a></li>
+                        <li><a href="{{action('ProductController@anyProduct', 'digital_cctv')}}">Digital CCTV</a></li>
+                        <li><a href="{{action('ProductController@anyProduct', 'ip_camera')}}">IP Camera</a></li>
+                        <li><a href="{{action('ProductController@anyProduct', 'alarm')}}">Alarm</a></li>
+                        <li><a href="{{action('ProductController@anyProduct', 'combo')}}">Combo</a></li>
+                    </ul>
+                </li>
 
                 @if($super_admin)
                     <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
@@ -81,7 +81,7 @@
                 @endif
 
                 @if($super_admin)
-                    <li><a href=""><i class="icon-list-alt"></i><span>Reports</span> </a> </li>
+                    {{--<li><a href=""><i class="icon-list-alt"></i><span>Reports</span> </a> </li>--}}
                 @endif
                 {{--<li><a href=""><i class="icon-group"></i><span>About</span> </a> </li>--}}
                 <li><a href="{{action('ContactController@anyContact')}}"><i class="icon-phone"></i><span>Contact Us</span> </a> </li>

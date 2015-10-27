@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\WebsiteViews;
 use Illuminate\Support\Facades\View;
 
 class HomeController extends Controller {
@@ -30,6 +31,17 @@ class HomeController extends Controller {
 
 	public function anyIndex()
 	{
+		$user_id = NULL;
+
+		if(User::check()) {
+			$user_id = User::get()->id;
+		}
+
+		$website_views = new WebsiteViews();
+
+		$website_views->user_id = $user_id;
+		$website_views->save();
+
 		return View::make('home.home');
 	}
 

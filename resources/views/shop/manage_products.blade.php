@@ -9,6 +9,11 @@
                 <div class="row">
 
                     @if(count($products) > 0)
+
+                        <p>
+
+                        </p>
+
                         <table>
                             @foreach($products as $product)
                                 <tr>

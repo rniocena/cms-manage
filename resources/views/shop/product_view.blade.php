@@ -13,7 +13,33 @@
                             </div> <!-- /widget-header -->
                             <div class="widget-content">
 
-                                <img src="{{$main_image}}" style="width: 320px; height: 300px">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <img src="{{$main_image}}" style="width: 320px; height: 300px">
+                                        </td>
+
+                                        <td>
+                                            <span style="margin-left: 5%; font-size: 20px">
+                                                <strong>
+                                                    <span>
+                                                        Price:
+                                                        ${{number_format(($product->price_in_cents / 100), 2, '.', '')}}
+                                                    </span>
+                                                </strong>
+                                            </span>
+                                            <br><br>
+                                            <small style="margin-left: 5%; font-size: 11px">
+                                                For info about how to purchase this item,
+                                                please contact us from the contact form above.
+                                            </small>
+                                            <br>
+                                            <small style="margin-left: 5%; font-size: 11px">
+                                                Remember to include the name of this product in your message.
+                                            </small>
+                                        </td>
+                                    </tr>
+                                </table>
 
                                 <br><br><br>
 
@@ -23,7 +49,7 @@
                                         <li class="active">
                                             <a href="#description" data-toggle="tab">Description</a>
                                         </li>
-                                        <li><a href="#reviews" data-toggle="tab">Reviews ({{count($reviews)}})</a></li>
+                                        {{--<li><a href="#reviews" data-toggle="tab">Reviews ({{count($reviews)}})</a></li>--}}
                                     </ul>
                                     <br>
 

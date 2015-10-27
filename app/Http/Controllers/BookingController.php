@@ -48,6 +48,7 @@ class BookingController extends Controller {
                 'first_name' => 'required',
                 'last_name' => 'required',
                 'email' => 'required',
+                'phone' => 'required',
                 'address' => 'required',
                 'suburb' => 'required',
                 'city' => 'required',
