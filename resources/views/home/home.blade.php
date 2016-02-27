@@ -15,7 +15,7 @@
 
                                 <div class="bannerImage">
                                     {{--<a href="#"><img src="http://placehold.it/960x405" alt=""></a>--}}
-                                    <img src="../dashboard/img/slide1.png" title="SMARTCCTVALARM" style="width:100px; height:100px">
+                                    <img src="../../../public/img/slide1.png" title="SMARTCCTVALARM" style="width:100px; height:100px">
                                 </div>
 
                                 <div class="caption row-fluid">
@@ -31,7 +31,7 @@
                             <div class="item">
 
                                 <div class="bannerImage">
-                                    <img src="../dashboard/img/slide2.png" title="SMARTCCTVALARM" style="width:100px; height:100px">
+                                    <img src="../../../public/img/slide2.png" title="SMARTCCTVALARM" style="width:100px; height:100px">
                                 </div>
 
                                 <div class="caption row-fluid">
@@ -48,7 +48,7 @@
 
                                 <div class="bannerImage">
                                     {{--<a href="#"><img src="http://placehold.it/960x405" alt=""></a>--}}
-                                    <img src="../dashboard/img/slide3.jpg" title="SMARTCCTVALARM" style="width:100px; height:100px">
+                                    <img src="../../../public/img/slide3.jpg" title="SMARTCCTVALARM" style="width:100px; height:100px">
                                 </div>
 
                                 <div class="caption row-fluid">

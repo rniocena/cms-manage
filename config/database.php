@@ -46,18 +46,40 @@ return [
 
     'connections' => [
 
-        'sqlite' => [
-            'driver'   => 'sqlite',
-            'database' => storage_path('database.sqlite'),
-            'prefix'   => '',
-        ],
+//        'sqlite' => [
+//            'driver'   => 'sqlite',
+//            'database' => storage_path('database.sqlite'),
+//            'prefix'   => '',
+//        ],
+
+//        'mysql' => [
+//            'driver'    => 'mysql',
+//            'host'      => 'localhost',
+//            'database'  => 'fn_store',
+//            'username'  => 'root',
+//            'password'  => 'root',
+//            'charset'   => 'utf8',
+//            'collation' => 'utf8_unicode_ci',
+//            'prefix'    => '',
+//        ],
+
+//        'mysql' => [
+//            'driver'    => 'mysql',
+//            'host'      => 'smartcctvalarm.co.nz',
+//            'database'  => 'fn_store',
+//            'username'  => 'fniocena',
+//            'password'  => 'zaSRL&)MWSDa',
+//            'charset'   => 'utf8',
+//            'collation' => 'utf8_unicode_ci',
+//            'prefix'    => '',
+//        ],
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => 'localhost',
+            'host'      => 'smartcctvalarm.co.nz',
             'database'  => 'fn_store',
-            'username'  => 'root',
-            'password'  => 'root',
+            'username'  => 'rsniocena',
+            'password'  => 'testpassword',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
@@ -110,16 +132,16 @@ return [
     |
     */
 
-    'redis' => [
-
-        'cluster' => false,
-
-        'default' => [
-            'host'     => '127.0.0.1',
-            'port'     => 6379,
-            'database' => 0,
-        ],
-
-    ],
+//    'redis' => [
+//
+//        'cluster' => false,
+//
+//        'default' => [
+//            'host'     => '127.0.0.1',
+//            'port'     => 6379,
+//            'database' => 0,
+//        ],
+//
+//    ],
 
 ];

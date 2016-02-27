@@ -19,7 +19,7 @@
 |
 */
 
-require __DIR__.'/../cms/bootstrap/autoload.php';
+require __DIR__.'/../cms-manage/bootstrap/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +33,7 @@ require __DIR__.'/../cms/bootstrap/autoload.php';
 |
 */
 
-$app = require_once __DIR__.'/../cms/bootstrap/app.php';
+$app = require_once __DIR__.'/../cms-manage/bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------
